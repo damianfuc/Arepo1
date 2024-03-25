@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_damian0519_PHPtest_1711371727372-push-trigger-input-set
+  identifier: Build_damian0519_PHPtest_1711371727372pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: Test3
+  pipeline:
+    identifier: Build_damian0519_PHPtest_1711371727372
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>

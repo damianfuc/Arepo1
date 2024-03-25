@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_damian0519_PHPtest_1711371727372-pr-trigger-input-set
+  identifier: Build_damian0519_PHPtest_1711371727372prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: Test3
+  pipeline:
+    identifier: Build_damian0519_PHPtest_1711371727372
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>

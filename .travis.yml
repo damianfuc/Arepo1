@@ -1,15 +1,26 @@
 os: linux
-dist: bionic
-rvm: 2.6.3
- 
-language: ruby
- 
-before_install:
-- sudo docker pull carlad/sinatra
-- sudo docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
-- sudo docker ps -a
-- sudo docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
- 
-script:
-- bundle exec rake test
+
+language: java
+services:
+  docker
+cache:
+  directories: $HOME/.m2
+dist: focal
+
+install: skip
+jobs:
+  include:
+    name: failing
+    script: true
+notifications:
+  email:
+    - damian.fuczylo@devtactics.net
+
+after_success:
+  echo done
+  echo $TRAVIS_TEST_RESULT
+after_failure:
+  echo failed
+  echo $TRAVIS_TEST_RESULT
+  echo $TRAVIS_TEST_RESULT
   
